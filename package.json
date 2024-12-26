@@ -1,0 +1,33 @@
+{
+	"name": "@dashboards/starter",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"check": "biome check",
+		"prepare": "husky",
+		"common": "pnpm --filter common",
+		"frontend": "pnpm --filter frontend",
+		"start": "concurrently --names \"fe,cmn\" --c \"magenta,cyan\" \"pnpm frontend dev\" \"pnpm common watch\" --pad-prefix "
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"engines": {
+		"node": "20.18.0"
+	},
+	"type": "module",
+	"packageManager": "pnpm@9.12.1",
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.4",
+		"@commitlint/cli": "^19.6.1",
+		"@commitlint/config-conventional": "^19.6.0",
+		"concurrently": "^9.1.0",
+		"husky": "^9.1.7",
+		"lint-staged": "^15.2.11"
+	},
+	"lint-staged": {
+		"**/*.{js,jsx}": ["biome check --write"]
+	}
+}
