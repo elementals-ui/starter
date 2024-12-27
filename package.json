@@ -11,6 +11,7 @@
 		"frontend": "pnpm --filter frontend",
 		"start": "concurrently --names \"fe,cmn\" --c \"magenta,cyan\" \"pnpm frontend dev\" \"pnpm common watch\" --pad-prefix "
 	},
+	"url": "https://github.com/dashboards/starter",
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
