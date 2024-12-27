@@ -4,8 +4,10 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"check": "biome check",
+		"test": "pnpm -r test",
+		"test:watch": "pnpm -r test:watch",
+		"test:coverage": "pnpm -r test:coverage",
+		"check": "biome check --write",
 		"prepare": "husky",
 		"common": "pnpm --filter common",
 		"frontend": "pnpm --filter frontend",

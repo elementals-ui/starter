@@ -7,7 +7,7 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"ignore": ["dist", "node_modules", "*.local"]
+		"ignore": ["dist", "node_modules", "*.local", "**/*.json"]
 	},
 	"formatter": {
 		"enabled": true,

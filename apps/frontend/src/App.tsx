@@ -1,4 +1,4 @@
-import { isBlank, hello } from "common";
+import { hello, isBlank } from "common";
 
 const App = () => {
 	return (

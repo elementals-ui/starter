@@ -1,0 +1,62 @@
+name: PR Checks
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.18.0'
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v3
+        with:
+          version: '9.12.1'
+
+      - name: Install Dependencies
+        run: pnpm install
+
+      - name: Build Common Package
+        run: pnpm common build
+
+      - name: Test Common Package
+        run: pnpm common test
+
+      - name: Test Frontend
+        run: pnpm frontend test
+
+      - name: Upload Coverage Reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-reports
+          path: |
+            apps/frontend/coverage/
+            packages/common/coverage/
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.18.0'
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v3
+        with:
+          version: '9.12.1'
+
+      - name: Install Dependencies
+        run: pnpm install
+
+      - name: Run Biome Check
+        run: pnpm check 

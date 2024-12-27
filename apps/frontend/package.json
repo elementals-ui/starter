@@ -8,20 +8,29 @@
 		"build": "tsc -b && vite build",
 		"lint": "eslint .",
 		"preview": "vite preview",
-		"deploy": "GITHUB_PAGES=true vite build"
+		"deploy": "GITHUB_PAGES=true vite build",
+		"test": "vitest run",
+		"test:watch": "vitest",
+		"test:coverage": "vitest run --coverage"
 	},
 	"dependencies": {
+		"@testing-library/jest-dom": "^6.6.3",
 		"common": "workspace:*",
 		"react": "^19.0.0",
 		"react-dom": "^19.0.0"
 	},
 	"devDependencies": {
+		"@testing-library/react": "^16.1.0",
+		"@testing-library/user-event": "^14.5.2",
 		"@types/react": "^19.0.2",
 		"@types/react-dom": "^19.0.2",
 		"@vitejs/plugin-react-swc": "^3.7.2",
+		"@vitest/coverage-v8": "^2.1.8",
 		"globals": "^15.14.0",
+		"jsdom": "^25.0.1",
 		"typescript": "~5.7.2",
 		"typescript-eslint": "^8.18.2",
-		"vite": "^6.0.6"
+		"vite": "^6.0.6",
+		"vitest": "^2.1.8"
 	}
 }
